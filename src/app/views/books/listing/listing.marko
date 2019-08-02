@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <title>Pagina de Listagem</title>
+        <meta name="description" content="The HTML5 Pedro">
+        <meta name="author" content="SitePoint">
+    </head>
+    <body>
+        <h1> Listagem de Livros </h1>
+
+        <table id="books">
+            <tr>
+                <td>ID</td>
+                <td>Título</td>
+                <td>Preço</td>
+                <td>Editar</td>
+                <td>Remover</td>
+            </tr>
+            <!-- recebemos dentro de data os books -->
+            <tr id="book_${book.id}" for (book in data.books) >
+                <td>${book.id}</td>
+                <td>${book.titulo}</td>
+                <td>${book.preco}</td>
+                <td><a href="/livros/form/${book.id}">Editar</a></td>
+                <td><a href="#" data-ref="${book.id}" data-type="remove">Remover</a></td>
+            </tr>
+        </table>
+
+        <script src="/etc/js/remove_book.js">
+        </script>
+    </body>
+</html>

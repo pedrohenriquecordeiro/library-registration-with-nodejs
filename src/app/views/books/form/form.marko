@@ -1,0 +1,39 @@
+<!-- form.marko -->
+
+<html>
+   <body>
+       <h1>Cadastro de livros</h1>
+
+       <form action="/livros" method="post">
+
+       <!-- recebemos dentro de data o livro -->
+            <div if(data.livro.id)>
+                <!-- tudo que estiver aqui, so serao renderizados quando o id do livro for valido -->
+                <!-- ou seja, quando estamos editando um livro-->
+
+                <!-- input do method-override -->
+                <input type="hidden" id="id" name ="id" value="${data.livro.id}" />
+                <!--                          -->
+
+                <input type="hidden" name="_method" value="PUT">
+            </div>
+
+           <div>
+               <label for="titulo">Titulo:</label>
+               <input type="text" id="titulo" name="titulo" value="${data.livro.titulo}" />
+           </div>
+
+           <div>
+               <label for="preco">Preço:</label>
+               <input type="text" id="preco" name="preco" value="${data.livro.preco}" placeholder="150.25" />
+           </div>
+
+           <div>
+               <label for="descricao">Descrição:</label>
+               <textarea cols="20" rows="10"  id="descricao" name="descricao"  placeholder="fale sobre o livro">${data.livro.descricao}</textarea>
+           </div>
+
+           <input type="submit" value="Salvar"/>
+       </form>
+   </body>
+</html>
